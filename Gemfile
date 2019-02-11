@@ -27,7 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt',         '3.1.12'
-gem 'jquery-rails', '>= 2.1.4'
+gem 'jquery-rails', '>= 4.3.1'
+gem 'bootstrap-will_paginate',  '1.0.0'
+gem 'bootstrap-sass',  '3.3.7'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
