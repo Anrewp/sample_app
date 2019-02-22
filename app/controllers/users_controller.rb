@@ -9,25 +9,25 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless true
     # debugger
   end
 
   def create
-      @user = User.new(user_params)    # Not the final implementation!
-      if @user.save
-        log_in @user
-        # Handle a successful save.
-        flash[:success] = "Welcome to the Sample App!"
-        redirect_to @user
-      else
-        render 'new'
-      end
+    @user = User.new(user_params)
+    if @user.save
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+    else
+      render 'new'
     end
+  end
 
   def update
     @user = User.find(params[:id])
@@ -50,6 +50,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def create_activation_digest
+      # Create the token and digest.
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
