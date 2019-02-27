@@ -27,6 +27,8 @@ gem 'bcrypt',                   '3.1.12'
 gem 'faker',                    '>= 1.7.3'
 gem 'will_paginate',            '3.1.6'
 gem 'bootstrap-will_paginate',  '1.0.0'
+gem 'carrierwave',              '1.2.2'
+gem 'mini_magick',              '4.7.0'
 
 # gem 'jquery-turbolinks'
 gem 'jquery-rails',             '>= 4.3.1'
@@ -44,7 +46,7 @@ gem 'jbuilder',                 '2.7.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
+  gem 'sqlite3', '1.3.13'#, git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -71,6 +73,8 @@ end
 
 group :production do
   gem 'pg', '0.18.4'
+  gem 'fog', '1.42'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
